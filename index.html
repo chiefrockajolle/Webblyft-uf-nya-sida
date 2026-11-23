@@ -120,8 +120,16 @@
         <div class="process__head">
           <h2 class="h2">Så går det till</h2>
           <p>Fyra steg från första samtal till färdig sida.</p>
+          <div class="process__nav">
+            <button class="process__btn" type="button" data-dir="-1" aria-label="Föregående steg">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="process__btn" type="button" data-dir="1" aria-label="Nästa steg">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="process__track">
+        <div class="process__track" tabindex="0" role="region" aria-label="Stegen, bläddra i sidled" data-cursor="Dra">
           <article class="step">
             <span class="step__num">1</span>
             <h3>Vi pratar</h3>

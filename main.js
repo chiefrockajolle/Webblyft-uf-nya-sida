@@ -402,22 +402,6 @@
       scrollTrigger: { trigger: st, start: 'top 80%', end: 'bottom 45%', scrub: true },
     });
 
-    // Process: horisontell scroll på större skärmar
-    const mm = gsap.matchMedia();
-    mm.add('(min-width: 900px)', () => {
-      const track = document.querySelector('.process__track');
-      const progress = document.querySelector('.process__progress span');
-      const dist = () => Math.max(0, track.scrollWidth - window.innerWidth);
-      gsap.to(track, {
-        x: () => -dist(), ease: 'none',
-        scrollTrigger: {
-          trigger: '.process', start: 'top top', end: () => '+=' + dist(),
-          pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1,
-          onUpdate: (st) => { progress.style.transform = `scaleX(${st.progress})`; },
-        },
-      });
-    });
-
     // Footer-ordet lyfts upp bokstav för bokstav
     const word = document.querySelector('.footer__word');
     word.innerHTML = [...word.textContent].map((c) => `<span style="display:inline-block">${c}</span>`).join('');
@@ -607,6 +591,7 @@
      Grundfunktioner: meny, ankarlänkar, formulär
      --------------------------------------------------------- */
   function initBasics(lenis) {
+    initStepsScroller();
     const nav = document.querySelector('.nav');
     const toggle = document.querySelector('.nav__toggle');
     const menu = document.getElementById('mobilmeny');
@@ -695,5 +680,67 @@
         btn.disabled = false;
       }
     });
+  }
+
+  /* ---------------------------------------------------------
+     "Så går det till": stegen bläddras i sidled, ingen inlåsning.
+     Sidan scrollar fritt uppåt/nedåt. Den som vill se stegen
+     sveper i sidled (styrplatta), drar med musen, använder
+     piltangenterna eller knapparna.
+     --------------------------------------------------------- */
+  function initStepsScroller() {
+    const track = document.querySelector('.process__track');
+    if (!track) return;
+    const bar = document.querySelector('.process__progress span');
+    const btns = document.querySelectorAll('.process__btn');
+    const max = () => track.scrollWidth - track.clientWidth;
+
+    const update = () => {
+      const m = max();
+      if (bar) bar.style.transform = `scaleX(${m > 0 ? track.scrollLeft / m : 0})`;
+      btns.forEach((b) => {
+        b.disabled = Number(b.dataset.dir) < 0 ? track.scrollLeft < 4 : track.scrollLeft > m - 4;
+      });
+    };
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+
+    // Knapparna flyttar ett kort i taget
+    const stepWidth = () => {
+      const s = track.querySelector('.step');
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return s ? s.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+    };
+    btns.forEach((b) => b.addEventListener('click', () => {
+      track.scrollBy({ left: stepWidth() * Number(b.dataset.dir), behavior: reduceMotion ? 'auto' : 'smooth' });
+    }));
+
+    // Svep i sidled på styrplattan går till stegen, inte till sidans mjuka scroll
+    track.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) e.stopPropagation();
+    }, { passive: true });
+
+    // Dra med musen
+    let down = false, moved = false, startX = 0, startLeft = 0;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) > 5) { moved = true; track.classList.add('is-dragging'); }
+      if (moved) track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (!down) return;
+      down = false;
+      track.classList.remove('is-dragging');
+    });
+    // Ett drag ska inte räknas som klick
+    track.addEventListener('click', (e) => {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
   }
 });

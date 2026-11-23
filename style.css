@@ -368,7 +368,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   overflow: hidden;
 }
 .process__pin {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -421,6 +421,42 @@ ul { margin: 0; padding: 0; list-style: none; }
   .process__track { flex-direction: column; width: auto; }
   .step { width: 100%; min-height: 260px; }
 }
+
+/* Stegen: egen rad som bläddras i sidled, ingen inlåsning */
+.process__nav { display: flex; gap: 10px; margin-left: auto; }
+.process__btn {
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .3s var(--ease), color .3s var(--ease), opacity .3s, transform .3s var(--ease);
+}
+.process__btn:hover:not(:disabled) { background: var(--ink); color: var(--lav); transform: scale(1.06); }
+.process__btn:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+.process__btn:disabled { opacity: .25; cursor: default; }
+
+@media (min-width: 900px) {
+  .process__track {
+    width: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    cursor: grab;
+    padding-bottom: 4px;
+  }
+  .process__track::-webkit-scrollbar { display: none; }
+  .process__track .step { flex: none; scroll-snap-align: start; }
+  .process__track.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .process__track.is-dragging .step { pointer-events: none; }
+  .process__track:focus-visible { outline: 2px solid var(--signal); outline-offset: 6px; border-radius: var(--radius); }
+}
+@media (max-width: 899px) { .process__nav { display: none; } }
 
 /* =========================================================
    Koncept
