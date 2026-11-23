@@ -1,0 +1,109 @@
+# Pages CMS – vad som går att redigera på webblyft-sidan
+# Dokumentation: https://pagescms.org/docs/configuration/
+
+media:
+  input: assets/bilder
+  output: /assets/bilder
+  rename: safe
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: startsida
+    label: Startsida
+    type: file
+    path: content/startsida.json
+    format: json
+    fields:
+      - name: hero
+        label: Överst på sidan
+        type: object
+        fields:
+          - { name: rad1, label: Rubrik rad 1, type: string }
+          - { name: rad2, label: Rubrik rad 2, type: string }
+          - { name: rad3, label: Rubrik rad 3, type: string }
+          - { name: ingress, label: Text under rubriken, type: text }
+      - name: pastaende
+        label: Stora citatet
+        type: text
+      - name: ingar
+        label: Vad ingår
+        type: object
+        fields:
+          - { name: rubrik, label: Rubrik, type: string }
+          - { name: ingress, label: Ingress, type: text }
+          - name: punkter
+            label: Punkter
+            type: object
+            list: true
+            fields:
+              - { name: titel, label: Titel, type: string }
+              - { name: text, label: Text, type: text }
+      - name: process
+        label: Så går det till
+        type: object
+        fields:
+          - { name: rubrik, label: Rubrik, type: string }
+          - { name: ingress, label: Ingress, type: text }
+          - name: steg
+            label: Steg (numreras automatiskt)
+            type: object
+            list: true
+            fields:
+              - { name: titel, label: Titel, type: string }
+              - { name: text, label: Text, type: text }
+      - name: koncept
+        label: Koncept
+        type: object
+        fields:
+          - { name: rubrik, label: Rubrik, type: string }
+          - { name: ingress, label: Ingress, type: text }
+
+  - name: priser
+    label: Priser
+    type: file
+    path: content/priser.json
+    format: json
+    fields:
+      - { name: rubrik, label: Rubrik, type: string }
+      - { name: ingress, label: Ingress, type: text }
+      - name: paket
+        label: Paket (de tre första visas)
+        type: object
+        list: true
+        fields:
+          - { name: namn, label: Namn, type: string }
+          - { name: for, label: Passar för, type: string }
+          - { name: pris, label: Pris i kronor, type: number, options: { min: 0 } }
+          - { name: etikett, label: Etikett ovanför (lämna tomt för ingen), type: string }
+          - { name: punkter, label: Det här ingår, type: string, list: true }
+
+  - name: team
+    label: Om oss
+    type: file
+    path: content/team.json
+    format: json
+    fields:
+      - { name: rubrik, label: Rubrik, type: string }
+      - { name: ingress, label: Ingress, type: text }
+      - name: personer
+        label: Personer
+        type: object
+        list: true
+        fields:
+          - { name: namn, label: Namn, type: string }
+          - { name: roll, label: Roll, type: string }
+          - { name: bild, label: Bild (stående, gärna 800×1000 px), type: image }
+          - { name: bildtext, label: Bildbeskrivning (för skärmläsare), type: string }
+
+  - name: kontakt
+    label: Kontakt
+    type: file
+    path: content/kontakt.json
+    format: json
+    fields:
+      - { name: rubrik, label: Rubrik, type: string }
+      - { name: ingress, label: Ingress, type: text }
+      - { name: mejl, label: Mejladress, type: string }
+      - { name: telefon, label: Telefon, type: string }
+      - { name: instagram, label: Instagram-namn (utan @), type: string }
+      - { name: sidfot, label: Text i sidfoten, type: string }
