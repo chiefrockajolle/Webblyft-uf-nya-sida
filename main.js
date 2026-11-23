@@ -446,12 +446,21 @@
       });
     });
 
-    // Ljusa sektioner växer ut från rundade kanter
+    // Ljusa sektioner växer ut från rundade kanter och tonar mjukt från mörkt till ljust.
+    // scrub: 1.2 ger en eftersläpning som jämnar ut scrollen, och animationen slutar
+    // exakt när sektionen når toppen (där "Så går det till" låses fast).
     document.querySelectorAll('.process, .pricing, .contact').forEach((el) => {
-      gsap.fromTo(el,
-        { clipPath: 'inset(7% 5% 0% 5% round 56px)' },
-        { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none',
-          scrollTrigger: { trigger: el, start: 'top bottom', end: 'top 20%', scrub: true } });
+      const fx = el.querySelector('.fx');
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'top top', scrub: 1.2 },
+      });
+      tl.fromTo(el,
+        { clipPath: 'inset(9% 6% 0% 6% round 80px)' },
+        { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'power2.out', duration: 1 }, 0)
+        .fromTo(el,
+          { backgroundColor: '#13306f', color: '#d5d7ff' },
+          { backgroundColor: '#d5d7ff', color: '#071436', ease: 'power1.inOut', duration: 0.65 }, 0);
+      if (fx) tl.fromTo(fx, { autoAlpha: 0 }, { autoAlpha: 1, ease: 'none', duration: 0.5 }, 0.25);
     });
 
     // Bakgrundsglöd rör sig i otakt med scrollen (djupkänsla)
