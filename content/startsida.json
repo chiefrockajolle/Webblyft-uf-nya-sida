@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "rad1": "Hemsidor",
+    "rad2": "som lyfter",
+    "rad3": "Gotlands företag",
+    "ingress": "Vi bygger moderna, mobilanpassade hemsidor åt små företag på ön. Fast pris, egen domän och ingen teknik ni behöver bry er om."
+  },
+  "pastaende": "Innan någon ringer, bokar eller kliver in genom dörren har de oftast googlat ert företag först. Vi ser till att det de hittar känns lika proffsigt som ni är.",
+  "ingar": {
+    "rubrik": "En nyckelfärdig hemsida",
+    "ingress": "Ni berättar vad ni gör. Vi tar hand om resten, från första skiss till att sidan ligger uppe på er egen adress.",
+    "punkter": [
+      { "titel": "Unik design", "text": "Ingen mall som ser ut som alla andras. Färger, typsnitt och bilder väljs efter ert företag och era kunder." },
+      { "titel": "Mobilanpassad", "text": "De flesta besöker er sida från telefonen. Den fungerar lika bra där som på datorn." },
+      { "titel": "Domän ingår", "text": "Vi hjälper er att hitta en ledig adress som passar, till exempel ertforetag.se, och kopplar den till sidan." },
+      { "titel": "Vi sköter tekniken", "text": "Ni får en färdig sida som går att använda direkt, utan att behöva lära er något nytt." }
+    ]
+  },
+  "process": {
+    "rubrik": "Så går det till",
+    "ingress": "Fyra steg från första samtal till färdig sida.",
+    "steg": [
+      { "titel": "Vi pratar", "text": "Ett kort möte eller samtal där ni berättar om företaget, era kunder och vad sidan ska hjälpa till med." },
+      { "titel": "Vi designar", "text": "Ni får ett designförslag att tycka till om. Vi justerar tills det känns rätt." },
+      { "titel": "Vi bygger", "text": "Sidan byggs, testas på mobil och dator och fylls med er text och era bilder." },
+      { "titel": "Ni syns", "text": "Vi hittar och kopplar er domän och sidan går live. Klar att dela med kunderna." }
+    ]
+  },
+  "koncept": {
+    "rubrik": "Så kan det se ut",
+    "ingress": "Tre konceptdesigner för helt påhittade företag. De finns inte på riktigt, men visar spännvidden i vad vi kan bygga."
+  }
+}

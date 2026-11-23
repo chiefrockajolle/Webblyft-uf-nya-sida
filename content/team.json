@@ -1,0 +1,9 @@
+{
+  "rubrik": "Tre ungdomar bakom skärmen",
+  "ingress": "Webblyft är ett UF-företag som drivs av oss tre. Ni pratar alltid direkt med någon av oss, aldrig med en växel.",
+  "personer": [
+    { "namn": "Ludvig", "roll": "VD och försäljning", "bild": "/assets/bilder/ludvig.jpg", "bildtext": "Ludvig" },
+    { "namn": "Joel", "roll": "Webbmaster", "bild": "/assets/bilder/joel.jpg", "bildtext": "Joel med två laptops" },
+    { "namn": "Malte", "roll": "Ekonomiansvarig och försäljning", "bild": "/assets/bilder/malte.jpg", "bildtext": "Malte i telefon" }
+  ]
+}

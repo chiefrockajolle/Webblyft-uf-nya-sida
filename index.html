@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webblyft UF – Hemsidor för företag på Gotland</title>
+  <meta name="description" content="Webblyft UF bygger moderna, mobilanpassade hemsidor åt små företag på Gotland – till fast pris, med hjälp att hitta och koppla domän.">
+  <meta name="theme-color" content="#071436">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta property="og:title" content="Webblyft UF – Hemsidor för företag på Gotland">
+  <meta property="og:description" content="Snygga, mobilanpassade hemsidor till fast pris. Vi sköter allt från design till domän.">
+  <meta property="og:image" content="assets/logo-full.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Unbounded:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+  <div class="grain" aria-hidden="true"></div>
+  <canvas class="stars" aria-hidden="true"></canvas>
+
+  <!-- Laddningsskärm: lyfts upp när sidan är redo -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <img src="assets/logo-globe.png" alt="" class="loader__globe">
+      <div class="loader__count"><span class="loader__num">0</span></div>
+    </div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <header class="nav">
+    <a href="#top" class="nav__brand" aria-label="Webblyft UF, till början">
+      <img src="assets/logo-globe.png" alt="" width="36" height="36">
+      <span>Webblyft</span>
+    </a>
+    <nav class="nav__links" aria-label="Huvudmeny">
+      <a href="#ingar">Vad ingår</a>
+      <a href="#process">Så går det till</a>
+      <a href="#koncept">Koncept</a>
+      <a href="#priser">Priser</a>
+      <a href="#om-oss">Om oss</a>
+    </nav>
+    <a href="#kontakt" class="btn btn--small">Kontakta oss</a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="mobilmeny">
+      <span></span><span></span><span class="sr-only">Meny</span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobilmeny" hidden>
+    <a href="#ingar">Vad ingår</a>
+    <a href="#process">Så går det till</a>
+    <a href="#koncept">Koncept</a>
+    <a href="#priser">Priser</a>
+    <a href="#om-oss">Om oss</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <canvas class="hero__canvas" aria-hidden="true" data-cursor="Dra"></canvas>
+      <img class="hero__fallback" src="assets/logo-globe.png" alt="" aria-hidden="true">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          <span class="line"><span>Hemsidor</span></span>
+          <span class="line"><span>som lyfter</span></span>
+          <span class="line"><span>Gotlands företag</span></span>
+        </h1>
+        <div class="hero__bottom">
+          <p class="hero__lead">Vi bygger moderna, mobilanpassade hemsidor åt små företag på ön. Fast pris, egen domän och ingen teknik ni behöver bry er om.</p>
+          <div class="hero__ctas">
+            <a href="#kontakt" class="btn">Boka ett samtal</a>
+            <a href="#priser" class="btn btn--ghost">Se priser</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÅSTÅENDE -->
+    <section class="statement" id="varfor">
+      <div class="fx fx--statement" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span><span class="fx__ring"></span></div>
+      <p class="statement__text" data-reveal-words>
+        Innan någon ringer, bokar eller kliver in genom dörren har de oftast googlat ert företag först. Vi ser till att det de hittar känns lika proffsigt som ni är.
+      </p>
+    </section>
+
+    <!-- VAD INGÅR -->
+    <section class="included" id="ingar">
+      <div class="fx fx--included" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span></div>
+      <div class="included__head">
+        <h2 class="h2">En nyckelfärdig hemsida</h2>
+        <p class="included__intro">Ni berättar vad ni gör. Vi tar hand om resten, från första skiss till att sidan ligger uppe på er egen adress.</p>
+      </div>
+      <ul class="included__list">
+        <li class="inc">
+          <h3 class="inc__title">Unik design</h3>
+          <p class="inc__text">Ingen mall som ser ut som alla andras. Färger, typsnitt och bilder väljs efter ert företag och era kunder.</p>
+        </li>
+        <li class="inc">
+          <h3 class="inc__title">Mobilanpassad</h3>
+          <p class="inc__text">De flesta besöker er sida från telefonen. Den fungerar lika bra där som på datorn.</p>
+        </li>
+        <li class="inc">
+          <h3 class="inc__title">Domän ingår</h3>
+          <p class="inc__text">Vi hjälper er att hitta en ledig adress som passar, till exempel ertforetag.se, och kopplar den till sidan.</p>
+        </li>
+        <li class="inc">
+          <h3 class="inc__title">Vi sköter tekniken</h3>
+          <p class="inc__text">Ni får en färdig sida som går att använda direkt, utan att behöva lära er något nytt.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PROCESS (horisontell scroll på dator) -->
+    <section class="process" id="process">
+      <div class="fx fx--process fx--light" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span><span class="fx__ring"></span></div>
+      <div class="process__pin">
+        <div class="process__head">
+          <h2 class="h2">Så går det till</h2>
+          <p>Fyra steg från första samtal till färdig sida.</p>
+        </div>
+        <div class="process__track">
+          <article class="step">
+            <span class="step__num">1</span>
+            <h3>Vi pratar</h3>
+            <p>Ett kort möte eller samtal där ni berättar om företaget, era kunder och vad sidan ska hjälpa till med.</p>
+          </article>
+          <article class="step">
+            <span class="step__num">2</span>
+            <h3>Vi designar</h3>
+            <p>Ni får ett designförslag att tycka till om. Vi justerar tills det känns rätt.</p>
+          </article>
+          <article class="step">
+            <span class="step__num">3</span>
+            <h3>Vi bygger</h3>
+            <p>Sidan byggs, testas på mobil och dator och fylls med er text och era bilder.</p>
+          </article>
+          <article class="step">
+            <span class="step__num">4</span>
+            <h3>Ni syns</h3>
+            <p>Vi hittar och kopplar er domän och sidan går live. Klar att dela med kunderna.</p>
+          </article>
+        </div>
+        <div class="process__progress" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- KONCEPT -->
+    <section class="concepts" id="koncept">
+      <div class="fx fx--concepts" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span><span class="fx__ring"></span></div>
+      <div class="concepts__head">
+        <h2 class="h2">Så kan det se ut</h2>
+        <p>Tre konceptdesigner för helt påhittade företag. De finns inte på riktigt, men visar spännvidden i vad vi kan bygga.</p>
+      </div>
+
+      <div class="concepts__grid">
+        <figure data-cursor="Koncept" class="mock mock--cafe">
+          <div class="mock__bar"><i></i><i></i><i></i><span>koncept / kafe-masskri</span></div>
+          <div class="mock__screen">
+            <div class="cafe">
+              <div class="cafe__nav"><b>Kafé Måsskri</b><span>Meny</span><span>Hitta hit</span></div>
+              <div class="cafe__hero">
+                <p class="cafe__title">Kaffe &amp; saffranspannkaka i solen</p>
+                <span class="cafe__btn">Se menyn</span>
+              </div>
+              <div class="cafe__sun"></div>
+              <div class="cafe__wave"></div>
+            </div>
+          </div>
+          <figcaption><strong>Kafé Måsskri</strong> Påhittat företag, konceptdesign för ett café</figcaption>
+        </figure>
+
+        <figure data-cursor="Koncept" class="mock mock--bygg">
+          <div class="mock__bar"><i></i><i></i><i></i><span>koncept / brada-och-bult</span></div>
+          <div class="mock__screen">
+            <div class="bygg">
+              <div class="bygg__nav"><b>BRÄDA &amp; BULT</b><span>Begär offert</span></div>
+              <p class="bygg__title">Kalksten, trä och hantverk som håller.</p>
+              <div class="bygg__grid"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <figcaption><strong>Bräda &amp; Bult</strong> Påhittat företag, konceptdesign för en snickare</figcaption>
+        </figure>
+
+        <figure data-cursor="Koncept" class="mock mock--faro">
+          <div class="mock__bar"><i></i><i></i><i></i><span>koncept / ullkullen</span></div>
+          <div class="mock__screen">
+            <div class="faro">
+              <div class="faro__nav"><b>Ullkullen</b></div>
+              <div class="faro__rauk"></div>
+              <p class="faro__title">Ull, lamm och honung direkt från gården</p>
+              <span class="faro__btn">Öppettider</span>
+            </div>
+          </div>
+          <figcaption><strong>Ullkullen</strong> Påhittat företag, konceptdesign för en gårdsbutik</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PRISER -->
+    <section class="pricing" id="priser">
+      <div class="fx fx--pricing fx--light" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span><span class="fx__ring"></span></div>
+      <div class="pricing__head">
+        <h2 class="h2">Fasta priser</h2>
+        <p>Ni vet vad det kostar innan vi börjar. Inga timpriser, inga överraskningar.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan plan--uf">
+          <h3 class="plan__name">UF-paketet</h3>
+          <p class="plan__for">För andra UF-företag</p>
+          <p class="plan__price">499<span> kr</span></p>
+          <ul>
+            <li>En sida med det viktigaste</li>
+            <li>Vad ni gör, vilka ni är och hur man når er</li>
+            <li>Mobilanpassad</li>
+          </ul>
+          <a href="#kontakt" class="btn btn--line" data-plan="UF-paketet">Välj UF-paketet</a>
+        </article>
+
+        <article class="plan plan--standard">
+          <h3 class="plan__name">Standard</h3>
+          <p class="plan__for">För företag som vill synas proffsigt</p>
+          <p class="plan__price">2 499<span> kr</span></p>
+          <ul>
+            <li>Cirka 2 sidor med information</li>
+            <li>Om oss och kontaktuppgifter</li>
+            <li>Ren och snygg design</li>
+            <li>Mobilanpassad</li>
+            <li>Hjälp att hitta och koppla domän</li>
+          </ul>
+          <a href="#kontakt" class="btn btn--line" data-plan="Standard">Välj Standard</a>
+        </article>
+
+        <article class="plan plan--premium">
+          <p class="plan__badge">Mest för pengarna</p>
+          <h3 class="plan__name">Premium</h3>
+          <p class="plan__for">För företag som vill sticka ut</p>
+          <p class="plan__price">4 499<span> kr</span></p>
+          <ul>
+            <li>Allt i Standard</li>
+            <li>Upp till 5 sidor</li>
+            <li>Till exempel blogg, bokning eller galleri</li>
+            <li>Mer genomarbetad design med animationer</li>
+            <li>Hjälp att hitta och koppla domän</li>
+          </ul>
+          <a href="#kontakt" class="btn" data-plan="Premium">Välj Premium</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- OM OSS -->
+    <section class="team" id="om-oss">
+      <div class="fx fx--team" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span></div>
+      <div class="team__head">
+        <h2 class="h2">Tre ungdomar bakom skärmen</h2>
+        <p>Webblyft är ett UF-företag som drivs av oss tre. Ni pratar alltid direkt med någon av oss, aldrig med en växel.</p>
+      </div>
+      <div class="team__grid">
+        <figure class="person">
+          <div class="person__img"><img src="assets/bilder/ludvig.jpg" alt="Ludvig" loading="lazy" width="800" height="1000"></div>
+          <figcaption>
+            <h3>Ludvig</h3>
+            <p>VD och försäljning</p>
+          </figcaption>
+        </figure>
+        <figure class="person">
+          <div class="person__img"><img src="assets/bilder/joel.jpg" alt="Joel med två laptops" loading="lazy" width="800" height="1000"></div>
+          <figcaption>
+            <h3>Joel</h3>
+            <p>Webbmaster</p>
+          </figcaption>
+        </figure>
+        <figure class="person">
+          <div class="person__img"><img src="assets/bilder/malte.jpg" alt="Malte i telefon" loading="lazy" width="800" height="1000"></div>
+          <figcaption>
+            <h3>Malte</h3>
+            <p>Ekonomiansvarig och försäljning</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="contact" id="kontakt">
+      <div class="fx fx--contact fx--light" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span><span class="fx__ring"></span></div>
+      <div class="contact__info">
+        <h2 class="contact__title">Dags att lyfta er sida?</h2>
+        <p>Berätta kort om ert företag så hör vi av oss. Det kostar ingenting att fråga.</p>
+        <!-- BYT UT: era riktiga kontaktuppgifter -->
+        <ul class="contact__list">
+          <li><span>Mejl</span><a href="mailto:webblyftgotland@gmail.com">webblyftgotland@gmail.com</a></li>
+          <li><span>Telefon</span><a href="tel:+46793417075">079-341 70 75</a></li>
+          <li><span>Instagram</span><a href="https://instagram.com/webblyftuf" target="_blank" rel="noopener">@webblyftuf</a></li>
+        </ul>
+      </div>
+
+      <form class="form" id="kontaktform" novalidate>
+        <!-- Web3Forms-nyckel (publik, okej att ha i koden) -->
+        <input type="hidden" name="access_key" value="f060928f-e132-4238-bbdb-04cf74641766">
+        <input type="hidden" name="subject" value="Ny förfrågan från webblyft.se">
+        <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <label for="f-namn">Namn</label>
+          <input id="f-namn" name="namn" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-foretag">Företag</label>
+          <input id="f-foretag" name="foretag" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="f-mejl">Mejl</label>
+          <input id="f-mejl" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="f-paket">Paket</label>
+          <select id="f-paket" name="paket">
+            <option>Vet inte än</option>
+            <option>UF-paketet</option>
+            <option>Standard</option>
+            <option>Premium</option>
+          </select>
+        </div>
+        <div class="field field--full">
+          <label for="f-meddelande">Berätta om ert företag</label>
+          <textarea id="f-meddelande" name="meddelande" rows="4" required></textarea>
+        </div>
+        <div class="form__foot">
+          <button type="submit" class="btn">Skicka förfrågan</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <p>Digital synlighet för lokala företag.</p>
+      <a href="#top" class="footer__up">Till toppen</a>
+    </div>
+    <p class="footer__word" aria-hidden="true">WEBBLYFT</p>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Webblyft UF</span>
+      <span>Ett företag inom Ung Företagsamhet, Gotland</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="content.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
