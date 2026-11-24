@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Om oss &amp; kontakt – Klintens Måleri (exempelsida)</title>
+  <meta name="description" content="Exempelsida för Webblyft UF:s Standard-paket. Klintens Måleri är ett påhittat företag.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="demo-bar">
+    <span><strong>Exempelsida.</strong> Klintens Måleri finns inte på riktigt. Sidan visar vad som ingår i Webblyft UF:s Standard-paket.</span>
+    <a href="../../#koncept">← Tillbaka till Webblyft UF</a>
+  </div>
+
+  <header class="nav">
+    <a href="index.html" class="logo"><i></i>Klintens Måleri</a>
+    <nav class="nav__links" aria-label="Huvudmeny">
+      <a href="index.html">Hem</a>
+      <a href="kontakt.html" aria-current="page">Om oss &amp; kontakt</a>
+      <a href="#offert" class="btn">Få en offert</a>
+    </nav>
+    <button class="menu-btn" aria-expanded="false">Meny</button>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <h1>Två målare från Klintehamn</h1>
+      <p>Vi har målat hus på Gotland sedan vi gick ut gymnasiet. Vi tar hellre färre jobb och gör dem ordentligt, och vi svarar alltid i telefon själva.</p>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="team">
+        <div class="member"><div class="photo">Plats för porträtt</div><b>Anna Exempel</b><span>Målare och den som ringer tillbaka</span></div>
+        <div class="member"><div class="photo">Plats för porträtt</div><b>Erik Exempel</b><span>Målare och tapetserare</span></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="offert" style="padding-top:0">
+      <div>
+        <h2>Hör av er</h2>
+        <dl style="margin-top:32px">
+          <div><dt>Telefon</dt><dd>0498-00 00 00</dd></div>
+          <div><dt>Mejl</dt><dd>hej@klintensmaleri.exempel</dd></div>
+          <div><dt>Vi jobbar på</dt><dd>Södra och mellersta Gotland</dd></div>
+        </dl>
+      </div>
+      <div>
+        <form class="form" novalidate>
+          <div class="row">
+            <label>Namn<input name="namn" autocomplete="name" required></label>
+            <label>Telefon eller mejl<input name="kontakt" required></label>
+          </div>
+          <label>Vad vill ni ha hjälp med?
+            <select name="jobb">
+              <option>Fasadmålning</option><option>Inomhus</option><option>Tapetsering</option><option>Vet inte än</option>
+            </select>
+          </label>
+          <label>Berätta kort om huset<textarea name="text" placeholder="Till exempel storlek, ort och när ni vill att det ska vara klart"></textarea></label>
+          <p class="error" aria-live="polite"></p>
+          <div><button class="btn" type="submit">Skicka förfrågan</button></div>
+        </form>
+        <div class="form-done" role="status">
+          <h3>Tack, <span data-name></span>!</h3>
+          <p>På en riktig sida skulle förfrågan nu ha skickats till företagets mejl. Det här är en exempelsida, så ingenting skickades.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Klintens Måleri, Klintehamn (påhittat företag)</span>
+    <span>Exempelsida byggd av <a href="../../">Webblyft UF</a></span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

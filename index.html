@@ -157,133 +157,40 @@
       </div>
     </section>
 
-    <!-- KONCEPT: interaktiv demo -->
+    <!-- KONCEPT: två exempelsidor -->
     <section class="concepts" id="koncept">
       <div class="fx fx--concepts" aria-hidden="true"><span class="orb orb--a"></span><span class="orb orb--b"></span><span class="fx__ring"></span></div>
       <div class="concepts__head">
-        <h2 class="h2">Klicka runt själv</h2>
-        <p>Tre påhittade gotländska företag med sidor som fungerar på riktigt. Byt företag, testa funktionerna och se hur sidan anpassar sig till mobilen.</p>
+        <h2 class="h2">Testa två exempelsidor</h2>
+        <p>Företagen är påhittade, men sidorna fungerar på riktigt. Den ena visar vad som ingår i Standard, den andra vad vi kan bygga i Premium.</p>
       </div>
 
-      <div class="demo">
-        <div class="demo__side">
-          <div class="demo__pick" role="tablist" aria-label="Välj påhittat företag">
-            <button class="demo__opt is-active" role="tab" aria-selected="true" data-site="cafe">
-              <strong>Kafé Måsskri</strong><span>Meny med flikar och bordsbokning</span>
-            </button>
-            <button class="demo__opt" role="tab" aria-selected="false" data-site="bygg">
-              <strong>Bräda &amp; Bult</strong><span>Prisräknare för snickarjobb</span>
-            </button>
-            <button class="demo__opt" role="tab" aria-selected="false" data-site="gard">
-              <strong>Ullkullen</strong><span>Öppet just nu och varukorg</span>
-            </button>
+      <div class="examples">
+        <a class="example" href="exempel/standard/index.html" data-cursor="Öppna">
+          <div class="example__window">
+            <div class="example__bar"><i></i><i></i><i></i><span>klintensmaleri.se</span></div>
+            <div class="example__screen"><img src="assets/exempel-standard.jpg" alt="Förhandsvisning av exempelsidan för Klintens Måleri" loading="lazy" width="1000" height="2143"></div>
           </div>
-          <div class="demo__device" role="group" aria-label="Visa som">
-            <button class="is-active" data-device="desktop" aria-pressed="true">Dator</button>
-            <button data-device="mobile" aria-pressed="false">Mobil</button>
+          <div class="example__info">
+            <p class="example__plan">Standard</p>
+            <h3>Klintens Måleri</h3>
+            <p>Påhittad målerifirma. Två sidor, en kulörväljare som byter färg på hela sidan och ett offertformulär.</p>
+            <span class="example__open">Öppna exempelsidan</span>
           </div>
-          <p class="demo__fine">Företagen finns inte. Ingenting skickas eller bokas på riktigt.</p>
-        </div>
+        </a>
 
-        <div class="demo__stage">
-          <div class="demo__frame" data-cursor="Testa">
-            <div class="demo__bar"><i></i><i></i><i></i><span class="demo__url">kafemasskri.se</span></div>
-            <div class="demo__viewport" data-lenis-prevent>
-
-              <!-- Kafé Måsskri -->
-              <div class="ds ds--cafe is-active" data-site="cafe">
-                <header class="ds-nav"><b>Kafé Måsskri</b><a href="#" data-jump="meny">Meny</a><a href="#" data-jump="boka">Boka bord</a></header>
-                <section class="cafe-hero">
-                  <div class="cafe-sun"></div>
-                  <h3>Kaffe &amp; saffrans&shy;pannkaka i solen</h3>
-                  <p>Vid hamnen i Visby, varje dag i sommar.</p>
-                  <a href="#" class="cafe-btn" data-jump="meny">Se menyn</a>
-                  <div class="cafe-wave"></div>
-                </section>
-                <section class="cafe-menu" data-anchor="meny">
-                  <h4>Meny</h4>
-                  <div class="cafe-tabs" role="tablist">
-                    <button class="is-active" data-tab="fika">Fika</button><button data-tab="lunch">Lunch</button><button data-tab="dryck">Dryck</button>
-                  </div>
-                  <ul class="cafe-list is-active" data-list="fika">
-                    <li><span>Saffranspannkaka med salmbär</span><b>65 kr</b></li>
-                    <li><span>Kanelbulle</span><b>35 kr</b></li>
-                    <li><span>Rabarberpaj med vaniljsås</span><b>59 kr</b></li>
-                  </ul>
-                  <ul class="cafe-list" data-list="lunch">
-                    <li><span>Dagens soppa med surdegsbröd</span><b>115 kr</b></li>
-                    <li><span>Räksmörgås</span><b>149 kr</b></li>
-                    <li><span>Lammburgare från gården</span><b>165 kr</b></li>
-                  </ul>
-                  <ul class="cafe-list" data-list="dryck">
-                    <li><span>Bryggkaffe, påtår ingår</span><b>32 kr</b></li>
-                    <li><span>Iskaffe</span><b>45 kr</b></li>
-                    <li><span>Hemgjord fläderdricka</span><b>38 kr</b></li>
-                  </ul>
-                </section>
-                <section class="cafe-book" data-anchor="boka">
-                  <h4>Boka bord</h4>
-                  <div class="cafe-book__row">
-                    <span>Antal</span>
-                    <div class="stepper"><button data-step="-1" aria-label="Färre">−</button><output data-guests>2</output><button data-step="1" aria-label="Fler">+</button></div>
-                  </div>
-                  <div class="cafe-times">
-                    <button>11:30</button><button class="is-active">12:30</button><button>14:00</button><button>15:30</button>
-                  </div>
-                  <button class="cafe-btn cafe-book__go">Boka</button>
-                  <p class="cafe-book__ok" aria-live="polite"></p>
-                </section>
-                <footer class="ds-foot">Hamngatan 1, Visby (påhittad adress)</footer>
-              </div>
-
-              <!-- Bräda & Bult -->
-              <div class="ds ds--bygg" data-site="bygg" hidden>
-                <header class="ds-nav"><b>BRÄDA &amp; BULT</b><a href="#" data-jump="rakna" class="bygg-cta">Räkna på ert jobb</a></header>
-                <section class="bygg-hero">
-                  <h3>Kalksten, trä och hantverk som håller.</h3>
-                  <div class="bygg-blocks"><span></span><span></span><span></span></div>
-                </section>
-                <section class="bygg-calc" data-anchor="rakna">
-                  <h4>Vad kostar det ungefär?</h4>
-                  <div class="bygg-types">
-                    <button class="is-active" data-rate="2400" data-max="60">Altan</button><button data-rate="1100" data-max="80">Staket</button><button data-rate="9500" data-max="15">Bastu</button>
-                  </div>
-                  <label class="bygg-range">
-                    <span>Storlek <output data-size>20</output> m²</span>
-                    <input type="range" min="5" max="60" value="20" data-size-input>
-                  </label>
-                  <div class="bygg-total">
-                    <span>Ungefärligt pris inkl. material</span>
-                    <strong data-total>48 000 kr</strong>
-                  </div>
-                  <button class="bygg-btn">Begär offert</button>
-                  <p class="bygg-ok" aria-live="polite"></p>
-                </section>
-                <footer class="ds-foot">Snickeri i hela Gotland sedan påhittat år</footer>
-              </div>
-
-              <!-- Ullkullen -->
-              <div class="ds ds--gard" data-site="gard" hidden>
-                <header class="ds-nav"><b>Ullkullen</b><span class="gard-cart" aria-live="polite">Korg <output data-cart>0</output></span></header>
-                <section class="gard-hero">
-                  <div class="gard-rauk"></div>
-                  <h3>Ull, lamm och honung direkt från gården</h3>
-                  <p class="gard-open" data-open>Kollar öppettider…</p>
-                </section>
-                <section class="gard-shop">
-                  <h4>I butiken nu</h4>
-                  <div class="gard-grid">
-                    <article><div class="gard-img gard-img--ull"></div><b>Garn av gutefår</b><span>149 kr</span><button>Lägg i korgen</button></article>
-                    <article><div class="gard-img gard-img--honung"></div><b>Ljunghonung</b><span>95 kr</span><button>Lägg i korgen</button></article>
-                    <article><div class="gard-img gard-img--skinn"></div><b>Fårskinn</b><span>890 kr</span><button>Lägg i korgen</button></article>
-                  </div>
-                </section>
-                <footer class="ds-foot">Öppet tisdag till lördag, 10–17</footer>
-              </div>
-
-            </div>
+        <a class="example example--premium" href="exempel/premium/index.html" data-cursor="Öppna">
+          <div class="example__window">
+            <div class="example__bar"><i></i><i></i><i></i><span>kafemasskri.se</span></div>
+            <div class="example__screen"><img src="assets/exempel-premium.jpg" alt="Förhandsvisning av exempelsidan för Kafé Måsskri" loading="lazy" width="1000" height="2143"></div>
           </div>
-        </div>
+          <div class="example__info">
+            <p class="example__plan">Premium</p>
+            <h3>Kafé Måsskri</h3>
+            <p>Påhittat café. Fem sidor med meny och filter, bordsbokning, blogg, karta och animationer.</p>
+            <span class="example__open">Öppna exempelsidan</span>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -442,6 +349,5 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="content.js"></script>
   <script src="main.js"></script>
-  <script src="demo.js"></script>
 </body>
 </html>

@@ -458,14 +458,12 @@
       });
     });
 
-    // Koncept: demon glider in
-    gsap.from('.demo__frame', {
-      y: 120, rotate: -2, autoAlpha: 0, duration: 1.4, ease: 'expo.out',
-      scrollTrigger: { trigger: '.demo', start: 'top 85%' },
-    });
-    gsap.from('.demo__side > *', {
-      y: 40, autoAlpha: 0, duration: 1, ease: 'expo.out', stagger: 0.1,
-      scrollTrigger: { trigger: '.demo', start: 'top 85%' },
+    // Koncept: exempelfönstren glider in
+    gsap.utils.toArray('.example').forEach((el, i) => {
+      gsap.from(el, {
+        y: 120, rotate: i ? 3 : -3, autoAlpha: 0, duration: 1.4, ease: 'expo.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' },
+      });
     });
 
     // Team: bilder sveper fram underifrån

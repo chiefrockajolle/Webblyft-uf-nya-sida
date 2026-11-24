@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Om oss &amp; hitta hit – Kafé Måsskri (exempelsida)</title>
+  <meta name="description" content="Om caféet och hur man hittar hit. Exempelsida för Webblyft UF:s Premium-paket, Kafé Måsskri är ett påhittat företag.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="demo-bar">
+    <span><strong>Exempelsida.</strong> Kafé Måsskri finns inte på riktigt. Sidan visar vad som kan ingå i Webblyft UF:s Premium-paket.</span>
+    <a href="../../#koncept">← Tillbaka till Webblyft UF</a>
+  </div>
+
+  <header class="nav">
+    <a href="index.html" class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="14" r="10" fill="#f0b429"/><path d="M2 22c4-3 8-3 12 0s8 3 12 0 4-2 4-2v12H2z" fill="#14485c"/></svg>Kafé Måsskri</a>
+    <nav class="nav__links" aria-label="Huvudmeny">
+      <a href="meny.html">Meny</a>
+      <a href="blogg.html">Blogg</a>
+      <a href="om.html" aria-current="page">Om oss &amp; hitta hit</a>
+      <a href="boka.html" class="btn btn--saffron">Boka bord</a>
+    </nav>
+    <button class="menu-btn" aria-expanded="false">Meny</button>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <h1>Ett café <em>vid hamnen</em></h1>
+      <p>Startat av två syskon som tröttnade på att det inte fanns någonstans att fika med utsikt över båtarna.</p>
+    </section>
+    <div class="about">
+      <div class="reveal">
+        <p>Kafé Måsskri öppnade i ett gammalt packhus 2019. Huset var nästan förfallet, och vi renoverade det själva under en vinter med hjälp av halva släkten.</p>
+        <p>I dag har vi tolv bord inne och tjugo ute. Vi bakar allt själva och köper så mycket vi kan från gårdar på ön.</p>
+        <h2 style="margin:40px 0 18px">Hitta hit</h2>
+        <p>Hamngatan 0 i Visby, mitt emot gästhamnen. Fem minuters promenad från färjan.</p>
+        <p class="status" data-status>Kollar öppettider…</p>
+        <h2 style="margin:48px 0 18px">Skriv till oss</h2>
+        <form class="form" novalidate>
+          <label>Namn<input name="namn" autocomplete="name"></label>
+          <label>Mejl<input name="mejl" type="email" autocomplete="email"></label>
+          <label>Meddelande<textarea name="text" rows="4"></textarea></label>
+          <p class="error" aria-live="polite"></p>
+          <div><button class="btn" type="submit">Skicka</button></div>
+        </form>
+        <div class="form-done" role="status"><h3>Tack, <span data-thanks></span>!</h3><p>På en riktig sida skulle meddelandet nu skickas till caféets mejl. Det här är en exempelsida, så ingenting skickades.</p></div>
+      </div>
+      <div class="map reveal" aria-label="Karta över hamnen (påhittad)">
+        <svg viewBox="0 0 400 400">
+          <rect width="400" height="400" fill="#f3e6cf"/>
+          <path d="M0 230 C80 210 120 260 200 240 S320 200 400 220 V400 H0Z" fill="#14485c"/>
+          <path d="M150 238 h90 v40 h-90z M260 228 h18 v70 h-18z" fill="#f3e6cf"/>
+          <g fill="none" stroke="#e2d2b4" stroke-width="10" stroke-linecap="round"><path d="M20 120 H380"/><path d="M120 20 V210"/><path d="M290 40 V200"/><path d="M120 170 C180 160 240 190 290 170"/></g>
+          <g fill="#e9dbc0"><rect x="30" y="30" width="70" height="70" rx="6"/><rect x="140" y="30" width="130" height="70" rx="6"/><rect x="310" y="60" width="60" height="40" rx="6"/><rect x="30" y="140" width="70" height="60" rx="6"/><rect x="310" y="140" width="70" height="50" rx="6"/></g>
+          <text x="200" y="330" text-anchor="middle" font-family="Figtree, sans-serif" font-size="14" fill="#fbf3e6" opacity=".8">Gästhamnen</text>
+          <g class="pin"><path d="M200 196c-16-20-24-32-24-44a24 24 0 0 1 48 0c0 12-8 24-24 44z" fill="#9b1d3a"/><circle cx="200" cy="152" r="9" fill="#fbf3e6"/></g>
+        </svg>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <h2>Vi ses vid <em>hamnen.</em></h2>
+      <div>
+        <p class="status" data-status>Kollar öppettider…</p>
+        <p style="margin-top:10px">Hamngatan 0, Visby (påhittad adress)</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Kafé Måsskri är ett påhittat företag.</span>
+      <span>Exempelsida byggd av <a href="../../">Webblyft UF</a></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
