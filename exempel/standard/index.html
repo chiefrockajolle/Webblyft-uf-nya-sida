@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6ecbef4c">
+  <link rel="stylesheet" href="style.css?v=2ba8435d">
 </head>
 <body>
   <div class="demo-bar">
@@ -30,26 +30,74 @@
 
   <main>
     <section class="hero">
-      <h1>Vi målar Gotland, <span>ett hus i taget.</span></h1>
-      <div class="hero__row">
+      <svg class="hero__scene" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd7e2"/><stop offset=".75" stop-color="#f3ead9"/></linearGradient>
+          <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b5c27f"/><stop offset="1" stop-color="#7f9455"/></linearGradient>
+          <pattern id="planks" width="22" height="10" patternUnits="userSpaceOnUse"><rect width="22" height="10" fill="transparent"/><path d="M21 0V10" stroke="#000" stroke-opacity=".16" stroke-width="2"/></pattern>
+          <pattern id="tiles" width="34" height="22" patternUnits="userSpaceOnUse"><path d="M0 21H34M17 0V11M0 11H34M8 11V22M25 11V22" stroke="#000" stroke-opacity=".25" stroke-width="2" fill="none"/></pattern>
+        </defs>
+        <rect width="1600" height="900" fill="url(#sky)"/>
+        <circle cx="1330" cy="170" r="64" fill="#f7dc96"/>
+        <g fill="#fff" opacity=".7"><ellipse cx="1560" cy="300" rx="90" ry="22"/><ellipse cx="1500" cy="285" rx="60" ry="20"/><ellipse cx="980" cy="110" rx="70" ry="16"/></g>
+        <path d="M0 590 H1600 V620 H0Z" fill="#7aa3b3"/>
+        <path d="M0 610 C300 590 600 600 900 605 S1400 590 1600 600 V900 H0Z" fill="url(#grass)"/>
+        <!-- Träd -->
+        <rect x="700" y="470" width="14" height="160" fill="#5b4a3a"/>
+        <circle cx="706" cy="450" r="70" fill="#6f8a4e"/><circle cx="660" cy="490" r="50" fill="#62804a"/><circle cx="750" cy="488" r="52" fill="#5d7a45"/>
+        <!-- Huset -->
+        <g class="house">
+          <rect x="1090" y="260" width="34" height="90" fill="#8a8178"/>
+          <polygon points="800,400 1140,250 1480,400" fill="#3b3431"/>
+          <polygon points="800,400 1140,250 1480,400" fill="url(#tiles)"/>
+          <rect class="house__wall" x="830" y="398" width="620" height="270"/>
+          <rect x="830" y="398" width="620" height="270" fill="url(#planks)"/>
+          <rect x="826" y="398" width="12" height="270" fill="#f7f3ea"/><rect x="1442" y="398" width="12" height="270" fill="#f7f3ea"/>
+          <rect x="826" y="396" width="628" height="10" fill="#f7f3ea"/>
+          <g class="win"><rect x="880" y="450" width="100" height="120" fill="#f7f3ea"/><rect x="890" y="460" width="80" height="100" fill="#a9c6d2"/><path d="M930 460V560M890 510H970" stroke="#f7f3ea" stroke-width="7"/></g>
+          <g class="win"><rect x="1030" y="450" width="100" height="120" fill="#f7f3ea"/><rect x="1040" y="460" width="80" height="100" fill="#a9c6d2"/><path d="M1080 460V560M1040 510H1120" stroke="#f7f3ea" stroke-width="7"/></g>
+          <g class="win"><rect x="1310" y="450" width="100" height="120" fill="#f7f3ea"/><rect x="1320" y="460" width="80" height="100" fill="#a9c6d2"/><path d="M1360 460V560M1320 510H1400" stroke="#f7f3ea" stroke-width="7"/></g>
+          <rect x="1175" y="490" width="96" height="178" fill="#f7f3ea"/>
+          <rect x="1185" y="500" width="76" height="168" fill="#2b2522"/>
+          <circle cx="1248" cy="590" r="5" fill="#d8b25a"/>
+          <rect x="1160" y="666" width="126" height="16" fill="#cfc8b8"/>
+          <rect x="826" y="662" width="628" height="12" fill="#9d968a"/>
+        </g>
+        <!-- Stege och färghink -->
+        <g>
+          <path d="M1500 690 L1420 360 M1540 690 L1460 360" stroke="#c99b5f" stroke-width="10" stroke-linecap="round"/>
+          <path d="M1428 392H1468M1441 446H1481M1454 500H1494M1467 554H1507M1480 608H1520M1493 662H1533" stroke="#c99b5f" stroke-width="8" stroke-linecap="round"/>
+          <path d="M1540 700 h56 l-6 54 h-44z" fill="#e9e4da"/><ellipse cx="1568" cy="700" rx="28" ry="7" class="paint"/>
+          <path d="M1544 704 q8 22 0 30" class="paint-drip" stroke-width="7" fill="none" stroke-linecap="round"/>
+        </g>
+        <!-- Kalkstensmur -->
+        <g fill="#e2ddd0" stroke="#bdb5a4" stroke-width="3">
+          <rect x="0" y="740" width="90" height="44" rx="10"/><rect x="92" y="736" width="120" height="48" rx="12"/><rect x="214" y="742" width="80" height="42" rx="10"/><rect x="296" y="734" width="130" height="50" rx="12"/><rect x="428" y="742" width="96" height="42" rx="10"/><rect x="526" y="738" width="118" height="46" rx="12"/><rect x="646" y="742" width="84" height="42" rx="10"/><rect x="732" y="734" width="126" height="50" rx="12"/><rect x="860" y="740" width="100" height="44" rx="10"/><rect x="962" y="736" width="120" height="48" rx="12"/><rect x="1084" y="742" width="88" height="42" rx="10"/><rect x="1174" y="734" width="130" height="50" rx="12"/><rect x="1306" y="742" width="92" height="42" rx="10"/><rect x="1400" y="738" width="118" height="46" rx="12"/><rect x="1520" y="742" width="90" height="42" rx="10"/>
+          <rect x="40" y="784" width="110" height="46" rx="12"/><rect x="152" y="786" width="96" height="44" rx="10"/><rect x="250" y="784" width="124" height="46" rx="12"/><rect x="376" y="786" width="90" height="44" rx="10"/><rect x="468" y="784" width="128" height="46" rx="12"/><rect x="598" y="786" width="100" height="44" rx="10"/><rect x="700" y="784" width="116" height="46" rx="12"/><rect x="818" y="786" width="94" height="44" rx="10"/><rect x="914" y="784" width="130" height="46" rx="12"/><rect x="1046" y="786" width="98" height="44" rx="10"/><rect x="1146" y="784" width="118" height="46" rx="12"/><rect x="1266" y="786" width="96" height="44" rx="10"/><rect x="1364" y="784" width="126" height="46" rx="12"/><rect x="1492" y="786" width="110" height="44" rx="10"/>
+        </g>
+        <rect y="830" width="1600" height="70" fill="#7f9455"/>
+      </svg>
+
+      <div class="hero__content">
+        <h1>Vi målar Gotland, <span>ett hus i taget.</span></h1>
         <p>Fasad, inomhus och tapetsering för villor och sommarhus på södra Gotland. Vi lämnar fast offert efter ett hembesök.</p>
         <div class="hero__ctas">
           <a href="kontakt.html#offert" class="btn">Få en offert</a>
           <a href="#tjanster" class="btn btn--ghost">Våra tjänster</a>
         </div>
       </div>
-    </section>
 
-    <div class="swatches">
-      <div class="swatches__label"><span>Gotländska kulörer vi ofta använder</span><span>Klicka på en färg</span></div>
-      <div class="swatches__row">
-        <button class="swatch" style="background:#2f5d73;color:#fff" data-color="#2f5d73" aria-pressed="true"><b>Östersjöblå</b><small>Fönsterfoder</small></button>
-        <button class="swatch" style="background:#a63d2a;color:#fff" data-color="#a63d2a" aria-pressed="false"><b>Vallmoröd</b><small>Ladugårdar</small></button>
-        <button class="swatch" style="background:#6f685c;color:#fff" data-color="#6f685c" aria-pressed="false"><b>Raukgrå</b><small>Fasader</small></button>
-        <button class="swatch" style="background:#4a6741;color:#fff" data-color="#4a6741" aria-pressed="false"><b>Ängsgrön</b><small>Dörrar</small></button>
-        <button class="swatch" style="background:#2b2522;color:#fff" data-color="#2b2522" aria-pressed="false"><b>Tjärsvart</b><small>Sockel</small></button>
+      <div class="palette" role="group" aria-label="Måla om huset">
+        <span class="palette__label">Måla om huset: <b data-color-name>Östersjöblå</b></span>
+        <div class="palette__dots">
+          <button class="swatch" style="--c:#2f5d73" data-color="#2f5d73" data-name="Östersjöblå" aria-label="Östersjöblå" aria-pressed="true"></button>
+          <button class="swatch" style="--c:#a63d2a" data-color="#a63d2a" data-name="Vallmoröd" aria-label="Vallmoröd" aria-pressed="false"></button>
+          <button class="swatch" style="--c:#e9dcc0" data-color="#e9dcc0" data-name="Kalkvit" data-ink="#7a6a4a" aria-label="Kalkvit" aria-pressed="false"></button>
+          <button class="swatch" style="--c:#6f685c" data-color="#6f685c" data-name="Raukgrå" aria-label="Raukgrå" aria-pressed="false"></button>
+          <button class="swatch" style="--c:#4a6741" data-color="#4a6741" data-name="Ängsgrön" aria-label="Ängsgrön" aria-pressed="false"></button>
+        </div>
       </div>
-    </div>
+    </section>
 
     <section class="section" id="tjanster">
       <div class="section__head">
@@ -76,9 +124,31 @@
     </section>
 
     <section class="section split" style="padding-top:0">
-      <div class="photo">Plats för en bild på ett färdigt hus.<br>Här använder vi kundens egna foton.</div>
+      <figure class="compare" aria-label="Före och efter målning">
+        <svg class="compare__img" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="600" height="700" fill="#cdbfa8"/>
+          <g stroke="#000" stroke-opacity=".18" stroke-width="3"><path d="M40 0V700M80 0V700M120 0V700M160 0V700M200 0V700M240 0V700M280 0V700M320 0V700M360 0V700M400 0V700M440 0V700M480 0V700M520 0V700M560 0V700"/></g>
+          <g fill="#9a8e7c" opacity=".9"><path d="M60 80q40-10 60 20t-30 50q-40-10-30-70z"/><path d="M380 160q60 0 70 40t-50 30q-40-30-20-70z"/><path d="M200 420q50-20 80 10t-40 60q-50-20-40-70z"/><path d="M460 520q40 0 50 30t-40 30q-30-20-10-60z"/><path d="M90 560q30-10 40 20t-30 30q-20-20-10-50z"/></g>
+          <g fill="#7e7262"><circle cx="300" cy="90" r="6"/><circle cx="150" cy="300" r="5"/><circle cx="420" cy="380" r="7"/><circle cx="520" cy="250" r="4"/></g>
+          <rect x="170" y="200" width="260" height="300" fill="#ddd4c4"/><rect x="190" y="220" width="220" height="260" fill="#7f8f94"/><path d="M300 220V480M190 350H410" stroke="#ddd4c4" stroke-width="12"/>
+          <path d="M190 220 l60 70 M380 260 l30 40" stroke="#5f6b6e" stroke-width="2"/>
+        </svg>
+        <div class="compare__after" aria-hidden="true">
+          <svg class="compare__img" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice">
+            <rect width="600" height="700" class="house__wall"/>
+            <g stroke="#000" stroke-opacity=".16" stroke-width="3"><path d="M40 0V700M80 0V700M120 0V700M160 0V700M200 0V700M240 0V700M280 0V700M320 0V700M360 0V700M400 0V700M440 0V700M480 0V700M520 0V700M560 0V700"/></g>
+            <rect x="170" y="200" width="260" height="300" fill="#f7f3ea"/><rect x="190" y="220" width="220" height="260" fill="#a9c6d2"/><path d="M300 220V480M190 350H410" stroke="#f7f3ea" stroke-width="12"/>
+            <path d="M210 240 l50 0 l-60 60z" fill="#fff" opacity=".45"/>
+          </svg>
+        </div>
+        <span class="compare__tag compare__tag--before">Före</span>
+        <span class="compare__tag compare__tag--after">Efter</span>
+        <span class="compare__handle" aria-hidden="true"></span>
+        <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Dra för att jämföra före och efter">
+      </figure>
       <div>
         <h2>Så går ett jobb till</h2>
+        <p class="compare__hint">Dra i bilden för att se skillnaden före och efter.</p>
         <ol class="steps">
           <li><div><b>Hembesök</b><span>Vi tittar på huset och pratar kulörer.</span></div></li>
           <li><div><b>Fast offert</b><span>Ni får ett pris inom tre dagar.</span></div></li>
@@ -99,6 +169,6 @@
     <span>Exempelsida byggd av <a href="../../">Webblyft UF</a></span>
   </footer>
 
-  <script src="script.js?v=97d4aca0"></script>
+  <script src="script.js?v=83f110ec"></script>
 </body>
 </html>

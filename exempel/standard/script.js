@@ -9,21 +9,33 @@ menuBtn.addEventListener('click', () => {
   menuBtn.textContent = open ? 'Stäng' : 'Meny';
 });
 
-// Kulörer: hela sidans accentfärg byts
+// Kulörer: huset målas om och sidans accentfärg följer med
 const swatches = document.querySelectorAll('.swatch');
-const setColor = (c) => {
-  document.documentElement.style.setProperty('--accent', c);
-  swatches.forEach((s) => s.setAttribute('aria-pressed', String(s.dataset.color === c)));
-  try { localStorage.setItem('klinten-farg', c); } catch (e) {}
+const nameOut = document.querySelector('[data-color-name]');
+const setColor = (c, save = true) => {
+  const s = [...swatches].find((x) => x.dataset.color === c);
+  const root = document.documentElement.style;
+  root.setProperty('--house', c);
+  let accent = (s && s.dataset.ink) || c;
+  if (!s) try { accent = localStorage.getItem('klinten-accent') || c; } catch (e) {}
+  root.setProperty('--accent', accent);
+  swatches.forEach((x) => x.setAttribute('aria-pressed', String(x === s)));
+  if (nameOut && s) nameOut.textContent = s.dataset.name;
+  if (save) try { localStorage.setItem('klinten-farg', c); localStorage.setItem('klinten-accent', accent); } catch (e) {}
 };
 swatches.forEach((s) => s.addEventListener('click', () => setColor(s.dataset.color)));
 try {
   const saved = localStorage.getItem('klinten-farg');
-  if (saved) {
-    document.documentElement.style.setProperty('--accent', saved);
-    swatches.forEach((s) => s.setAttribute('aria-pressed', String(s.dataset.color === saved)));
-  }
+  if (saved) setColor(saved, false);
 } catch (e) {}
+
+// Före och efter
+document.querySelectorAll('.compare').forEach((fig) => {
+  const range = fig.querySelector('.compare__range');
+  const set = () => fig.style.setProperty('--pos', range.value + '%');
+  range.addEventListener('input', set);
+  set();
+});
 
 // Offertformulär
 const form = document.querySelector('.form');
