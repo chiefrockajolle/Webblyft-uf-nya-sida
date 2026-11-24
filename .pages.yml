@@ -74,6 +74,7 @@ content:
           - { name: namn, label: Namn, type: string }
           - { name: for, label: Passar för, type: string }
           - { name: pris, label: Pris i kronor, type: number, options: { min: 0 } }
+          - { name: notis, label: Liten text under priset (lämna tomt för ingen), type: string }
           - { name: etikett, label: Etikett ovanför (lämna tomt för ingen), type: string }
           - { name: punkter, label: Det här ingår, type: string, list: true }
 

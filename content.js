@@ -90,6 +90,19 @@ window.contentReady = (() => {
       const pris = Number(String(p.pris).replace(/\s/g, ''));
       if (Number.isFinite(pris)) $('.plan__price', el).firstChild.textContent = pris.toLocaleString('sv-SE');
 
+      // Liten text under priset, t.ex. "Lika mycket som ett riskkapital"
+      let note = $('.plan__note', el);
+      if (typeof p.notis === 'string' && p.notis.trim()) {
+        if (!note) {
+          note = document.createElement('p');
+          note.className = 'plan__note';
+          $('.plan__price', el).after(note);
+        }
+        note.textContent = p.notis.trim();
+      } else if (note && 'notis' in p) {
+        note.remove();
+      }
+
       if (Array.isArray(p.punkter) && p.punkter.length) {
         const ul = $('ul', el);
         ul.replaceChildren(...p.punkter.filter(Boolean).map((t) => {

@@ -621,6 +621,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: clamp(24px, 4vh, 44px) 0;
 }
 .plan__price span { font-size: .35em; font-weight: 600; letter-spacing: 0; }
+.plan__note { margin: calc(-1 * clamp(14px, 2.5vh, 30px)) 0 clamp(20px, 3vh, 32px); font-size: .95rem; font-weight: 600; opacity: .7; }
 .plan ul { display: grid; gap: 10px; margin-bottom: 36px; }
 .plan li { padding-left: 26px; position: relative; }
 .plan li::before {
