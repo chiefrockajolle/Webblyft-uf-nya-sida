@@ -458,12 +458,14 @@
       });
     });
 
-    // Koncept: flyger in
-    gsap.utils.toArray('.mock').forEach((m, i) => {
-      gsap.from(m, {
-        y: 140, rotate: i % 2 ? 4 : -4, autoAlpha: 0, duration: 1.4, ease: 'expo.out',
-        scrollTrigger: { trigger: m, start: 'top 92%' },
-      });
+    // Koncept: demon glider in
+    gsap.from('.demo__frame', {
+      y: 120, rotate: -2, autoAlpha: 0, duration: 1.4, ease: 'expo.out',
+      scrollTrigger: { trigger: '.demo', start: 'top 85%' },
+    });
+    gsap.from('.demo__side > *', {
+      y: 40, autoAlpha: 0, duration: 1, ease: 'expo.out', stagger: 0.1,
+      scrollTrigger: { trigger: '.demo', start: 'top 85%' },
     });
 
     // Team: bilder sveper fram underifrån
@@ -539,23 +541,6 @@
     window.addEventListener('pointermove', (e) => {
       const nx = e.clientX / window.innerWidth - 0.5;
       lineX.forEach((fn, i) => fn(nx * (i + 1) * -14));
-    });
-
-    // Koncept: lutar i 3D efter musen
-    document.querySelectorAll('.mock').forEach((m) => {
-      gsap.set(m, { transformPerspective: 1100 });
-      const rx = gsap.quickTo(m, 'rotationX', { duration: 0.7, ease: 'power3' });
-      const ry = gsap.quickTo(m, 'rotationY', { duration: 0.7, ease: 'power3' });
-      m.addEventListener('pointermove', (e) => {
-        const r = m.getBoundingClientRect();
-        const px = (e.clientX - r.left) / r.width;
-        const py = (e.clientY - r.top) / r.height;
-        ry((px - 0.5) * 12);
-        rx((0.5 - py) * 9);
-        m.style.setProperty('--gx', px * 100 + '%');
-        m.style.setProperty('--gy', py * 100 + '%');
-      });
-      m.addEventListener('pointerleave', () => { rx(0); ry(0); });
     });
 
     // Priser: ljuskägla följer musen
