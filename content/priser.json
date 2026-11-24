@@ -2,11 +2,41 @@
   "rubrik": "Fasta priser",
   "ingress": "Ni vet vad det kostar innan vi börjar. Inga timpriser, inga överraskningar.",
   "paket": [
-    { "namn": "UF-paketet", "for": "För andra UF-företag", "pris": 300, "etikett": "", "notis": "Lika mycket som ett riskkapital",
-      "punkter": ["En sida med det viktigaste", "Vad ni gör, vilka ni är och hur man når er", "Mobilanpassad"] },
-    { "namn": "Standard", "for": "För företag som vill synas proffsigt", "pris": 2499, "etikett": "",
-      "punkter": ["Cirka 2 sidor med information", "Om oss och kontaktuppgifter", "Ren och snygg design", "Mobilanpassad", "Hjälp att hitta och koppla domän"] },
-    { "namn": "Premium", "for": "För företag som vill sticka ut", "pris": 4499, "etikett": "Mest för pengarna",
-      "punkter": ["Allt i Standard", "Upp till 5 sidor", "Till exempel blogg, bokning eller galleri", "Mer genomarbetad design med animationer", "Hjälp att hitta och koppla domän"] }
+    {
+      "namn": "UF-paketet",
+      "for": "För andra UF-företag",
+      "pris": 300,
+      "notis": "(lika mycket som ett riskkapital)",
+      "punkter": [
+        "En sida med det viktigaste",
+        "Vad ni gör, vilka ni är och hur man når er",
+        "Mobilanpassad"
+      ]
+    },
+    {
+      "namn": "Standard",
+      "for": "För företag som vill synas proffsigt",
+      "pris": 2499,
+      "punkter": [
+        "Cirka 2 sidor med information",
+        "Om oss och kontaktuppgifter",
+        "Ren och snygg design",
+        "Mobilanpassad",
+        "Hjälp att hitta och koppla domän"
+      ]
+    },
+    {
+      "namn": "Premium",
+      "for": "För företag som vill sticka ut",
+      "pris": 4499,
+      "etikett": "Mest för pengarna",
+      "punkter": [
+        "Allt i Standard",
+        "Upp till 5 sidor",
+        "Till exempel blogg, bokning eller galleri",
+        "Mer genomarbetad design med animationer",
+        "Hjälp att hitta och koppla domän"
+      ]
+    }
   ]
 }
