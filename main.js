@@ -6,6 +6,18 @@
    ========================================================= */
 
 // Startar när innehållet från content/ är inläst (se content.js)
+// Kommer man till sidan med t.ex. #koncept i adressen (från exempelsidorna)
+// tas det bort ur adressfältet direkt, och sidan scrollar dit när den laddat klart.
+const startHash = location.hash;
+if (startHash) history.replaceState(null, '', location.pathname + location.search);
+const goToStartHash = (lenis) => {
+  let target = null;
+  try { target = startHash && document.querySelector(startHash); } catch (e) {}
+  if (!target) return;
+  if (lenis) lenis.scrollTo(target, { offset: -20, immediate: true, force: true });
+  else target.scrollIntoView();
+};
+
 (window.contentReady || Promise.resolve()).then(() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
@@ -314,6 +326,7 @@
     document.body.classList.remove('is-loading');
     globePromise.then((s) => { if (s) s.intro = 1; });
     initBasics(null);
+    goToStartHash(null);
     return;
   }
 
@@ -355,12 +368,14 @@
   ready.then(async () => {
     const globeState = await Promise.race([globePromise, Promise.resolve(null)]);
     pre.kill();
+    goToStartHash(lenis);   // hoppa medan laddningsskärmen fortfarande täcker sidan
     const tl = gsap.timeline({
       onComplete: () => {
         loader.remove();
         document.body.classList.remove('is-loading');
         lenis?.start();
         ScrollTrigger.refresh();
+        goToStartHash(lenis);
       },
     });
     tl.to(counter, { v: 100, duration: reduceMotion ? 0 : 0.45, ease: 'power1.out', onUpdate: render })
