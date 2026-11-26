@@ -19,6 +19,12 @@
       "roll": "Ekonomiansvarig och försäljning",
       "bild": "/assets/bilder/malte.jpg",
       "bildtext": "Malte i telefon"
+    },
+    {
+      "namn": "Scture",
+      "roll": "Äta fet",
+      "bild": "/assets/bilder/img0141.jpeg",
+      "bildtext": "Katt som är tjock och sover"
     }
   ]
 }
