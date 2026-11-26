@@ -505,37 +505,6 @@ const goToStartHash = (lenis) => {
 
     if (!finePointer) return;
 
-    // Egen muspekare
-    const dot = document.createElement('div');
-    dot.className = 'cursor';
-    const ring = document.createElement('div');
-    ring.className = 'cursor-ring';
-    ring.innerHTML = '<span></span>';
-    document.body.append(dot, ring);
-    const label = ring.firstChild;
-    gsap.set([dot, ring], { xPercent: -50, yPercent: -50 });
-    const dX = gsap.quickTo(dot, 'x', { duration: 0.08 });
-    const dY = gsap.quickTo(dot, 'y', { duration: 0.08 });
-    const rX = gsap.quickTo(ring, 'x', { duration: 0.45, ease: 'power3' });
-    const rY = gsap.quickTo(ring, 'y', { duration: 0.45, ease: 'power3' });
-    window.addEventListener('pointermove', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      document.body.classList.add('has-cursor');
-      dX(e.clientX); dY(e.clientY); rX(e.clientX); rY(e.clientY);
-    });
-    document.addEventListener('pointerover', (e) => {
-      const t = e.target.closest('[data-cursor], a, button, select');
-      const txt = t && t.dataset.cursor;
-      ring.classList.toggle('is-link', !!t && !txt);
-      ring.classList.toggle('is-label', !!txt);
-      label.textContent = txt || '';
-    });
-    document.documentElement.addEventListener('pointerleave', () => document.body.classList.remove('has-cursor'));
-    // Vanlig textmarkör i formulärfält
-    document.querySelectorAll('input, textarea').forEach((el) => {
-      el.addEventListener('pointerenter', () => document.body.classList.remove('has-cursor'));
-    });
-
     // Magnetiska knappar
     document.querySelectorAll('.btn').forEach((b) => {
       const mx = gsap.quickTo(b, 'x', { duration: 0.6, ease: 'elastic.out(1, 0.4)' });

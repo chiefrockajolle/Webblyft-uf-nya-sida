@@ -774,35 +774,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   100% { transform: translate(0, 0); }
 }
 
-/* Egen muspekare */
-.cursor, .cursor-ring {
-  position: fixed; top: 0; left: 0;
-  z-index: 200;
-  pointer-events: none;
-  border-radius: 50%;
-  mix-blend-mode: difference;
-  opacity: 0;
-  transition: opacity .3s;
-}
-.has-cursor .cursor, .has-cursor .cursor-ring { opacity: 1; }
-.cursor { width: 6px; height: 6px; background: #fff; }
-.cursor-ring {
-  width: 38px; height: 38px;
-  border: 1.5px solid #fff;
-  display: grid; place-items: center;
-  transition: width .4s var(--ease), height .4s var(--ease), background .3s, opacity .3s;
-}
-.cursor-ring span {
-  font: 600 .8rem/1 var(--f-body);
-  color: #000;
-  opacity: 0;
-  transition: opacity .2s;
-}
-.cursor-ring.is-link { width: 64px; height: 64px; }
-.cursor-ring.is-label { width: 92px; height: 92px; background: #fff; }
-.cursor-ring.is-label span { opacity: 1; }
-.has-cursor, .has-cursor a, .has-cursor button, .has-cursor .hero__canvas { cursor: none !important; }
-
 /* Rubriker: bokstäver */
 .word {
   display: inline-block;
