@@ -347,48 +347,47 @@ const goToStartHash = (lenis) => {
   initBasics(lenis);
 
   /* ---------------------------------------------------------
-     Laddningsskärm → hero-intro
+     Intro: loggan reser sig, sedan lyfts skärmen bort i pelare.
+     Bara första besöket i fliken – annars visas sidan direkt.
      --------------------------------------------------------- */
   const loader = document.querySelector('.loader');
-  const num = document.querySelector('.loader__num');
-  const bar = document.querySelector('.loader__bar span');
-  const counter = { v: 0 };
-  const render = () => {
-    num.textContent = Math.round(counter.v);
-    bar.style.transform = `scaleX(${counter.v / 100})`;
+  const skipIntro = document.documentElement.classList.contains('no-intro');
+  const finish = () => {
+    loader?.remove();
+    document.body.classList.remove('is-loading');
+    lenis?.start();
+    ScrollTrigger.refresh();
+    goToStartHash(lenis);
+    try { sessionStorage.setItem('webblyft-intro', '1'); } catch (e) {}
   };
 
-  const minTime = new Promise((r) => setTimeout(r, reduceMotion ? 0 : 1300));
-  const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
-  const timeout = new Promise((r) => setTimeout(r, 5000));
-  const ready = Promise.race([Promise.all([minTime, fonts, globePromise]), timeout]);
+  if (skipIntro) {
+    finish();
+    globePromise.then((s) => { if (s) s.intro = 1; });
+  } else {
+    // Dölj bokstäverna tills typsnittet finns, så de inte hoppar
+    gsap.set('.loader__word span', { y: 0, yPercent: 110 });
+    gsap.set('.loader__globe', { scale: 0, rotate: -160 });
+    const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+    const ready = Promise.race([fonts, new Promise((r) => setTimeout(r, 1500))]);
 
-  const pre = gsap.to(counter, { v: 86, duration: reduceMotion ? 0 : 1.3, ease: 'power2.out', onUpdate: render });
-
-  ready.then(async () => {
-    const globeState = await Promise.race([globePromise, Promise.resolve(null)]);
-    pre.kill();
-    goToStartHash(lenis);   // hoppa medan laddningsskärmen fortfarande täcker sidan
-    const tl = gsap.timeline({
-      onComplete: () => {
-        loader.remove();
-        document.body.classList.remove('is-loading');
-        lenis?.start();
-        ScrollTrigger.refresh();
-        goToStartHash(lenis);
-      },
+    ready.then(async () => {
+      const globeState = await Promise.race([globePromise, new Promise((r) => setTimeout(() => r(null), 600))]);
+      goToStartHash(lenis);
+      const tl = gsap.timeline({ onComplete: finish });
+      tl.to('.loader__globe', { scale: 1, rotate: 0, duration: 0.9, ease: 'back.out(1.6)' })
+        .to('.loader__word span', { yPercent: 0, duration: 0.8, ease: 'expo.out', stagger: 0.045 }, '-=0.6')
+        .to('.loader__word span', { yPercent: -110, duration: 0.55, ease: 'expo.in', stagger: 0.03 }, '+=0.2')
+        .to('.loader__globe', { scale: 0, rotate: 160, duration: 0.5, ease: 'back.in(1.6)' }, '<0.1')
+        // Lyftet: pelarna åker upp en i taget
+        .to('.loader__cols i', { yPercent: -100, duration: 1, ease: 'expo.inOut', stagger: 0.07 }, '-=0.15')
+        .from('.hero__title .line > span', { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: 0.09 }, '-=0.55')
+        .from('.hero__bottom > *', { autoAlpha: 0, y: 20, duration: 0.9, ease: 'power3.out', stagger: 0.08, clearProps: 'transform' }, '-=0.8')
+        .from('.nav', { autoAlpha: 0, duration: 0.8, ease: 'power2.out' }, '<');
+      if (globeState) tl.to(globeState, { intro: 1, duration: 1.8, ease: 'expo.out' }, '-=1.6');
+      if (reduceMotion) tl.progress(1);
     });
-    tl.to(counter, { v: 100, duration: reduceMotion ? 0 : 0.45, ease: 'power1.out', onUpdate: render })
-      // Lyftet: hela skärmen åker uppåt
-      .to(loader, { yPercent: -100, duration: reduceMotion ? 0 : 1.1, ease: 'expo.inOut' }, '+=0.1')
-      .from('.hero__title .line > span', { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: 0.09 }, '-=0.5')
-      .from('.hero__bottom > *', { autoAlpha: 0, y: 20, duration: 0.9, ease: 'power3.out', stagger: 0.08, clearProps: 'transform' }, '-=0.8')
-      .from('.nav', { autoAlpha: 0, duration: 0.8, ease: 'power2.out' }, '<');
-    if (globeState) {
-      tl.to(globeState, { intro: 1, duration: 1.8, ease: 'expo.out' }, '-=1.6');
-    }
-    if (reduceMotion) tl.progress(1);
-  });
+  }
 
   /* ---------------------------------------------------------
      Scrollanimationer
